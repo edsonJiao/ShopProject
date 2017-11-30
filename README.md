@@ -6,6 +6,7 @@ JDK版本：JDK1.8
 版本控制工具：Github Git
 框架使用：Mybatis Spring
 
+
 各包的含义：
 dao 持久层，用于存放与数据库进行操作的类
 pojo 用于存放实体类
