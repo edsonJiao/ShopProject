@@ -17,6 +17,13 @@ db.properties 数据库属性文件
 SpringConfig.xml Spring的配置文件
 SqlMapperConfig.xml Mybatis的配置文件
 
+目录的作用
+images 用于存放测试图片
+lib  存档各种jar包
+
+目前数据库中所存在的表
+users 用户表
+goods 商品表
 
 命名规范：
 1.禁止使用拼音进行命名
