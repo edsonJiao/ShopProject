@@ -13,6 +13,13 @@ public class Goods {
 
     public Goods(){}
 
+    public Goods(String goodName, int account, double price, byte[] picture) {
+        this.goodName = goodName;
+        this.account = account;
+        this.price = price;
+        this.picture = picture;
+    }
+
     public int getId() {
         return id;
     }

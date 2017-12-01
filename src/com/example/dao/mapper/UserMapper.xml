@@ -9,4 +9,10 @@
     <insert id="insertUser">
         INSERT INTO users(admin,password,username) VALUES(#{0},#{1},#{2})
     </insert>
+    <select id="selectGoods" resultType="Goods">
+        SELECT * FROM goods;
+    </select>
+    <select id="selectGoodsByName" parameterType="String" resultType="Goods">
+        SELECT * FROM goods WHERE goodName LIKE '%${value}%';
+    </select>
 </mapper>

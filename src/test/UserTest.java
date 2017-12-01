@@ -1,12 +1,15 @@
 package test;
 
 import com.example.dao.mapper.UserMapper;
+import com.example.pojo.Goods;
 import com.example.pojo.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 //单元测试类
 public class UserTest {
@@ -53,6 +56,14 @@ private ApplicationContext context;
         }
     }
 
+    @Test
+    public void testSelectGoodsByName(){
+        UserMapper userMapper= (UserMapper) context.getBean("userMapper");
+        List<Goods> goodsList=userMapper.selectGoodsByName("mac");
+        for (Goods goods:goodsList){
+            System.out.println(goods.getGoodName());
+        }
+    }
     @After
     public void after(){
 
