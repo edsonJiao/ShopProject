@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 //单元测试类
-public class ProjectTest {
+public class UserTest {
 private ApplicationContext context;
     @Before
     public void before(){
@@ -46,7 +46,11 @@ private ApplicationContext context;
     public void testSelect(){
         UserMapper userMapper= (UserMapper) context.getBean("userMapper");
         User user=userMapper.selectUser("edson123","123456");
-        System.out.println(user.getUserName()+"  "+user.getAdmin()+" "+user.getPassword());
+        if (user!=null){
+            System.out.println(user.getUserName()+"  "+user.getAdmin()+" "+user.getPassword());
+        }else {
+            System.out.println("用户不存在");
+        }
     }
 
     @After

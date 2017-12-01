@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dao.mapper.AdminMapper">
+    <insert id="insertGoods">
+        INSERT INTO goods(goodName,account,price,picture) VALUES (#{0},#{1},#{2},#{3});
+    </insert>
+    <delete id="deleteGoods" parameterType="int">
+        DELETE FROM goods WHERE id=${value};
+    </delete>
+    <update id="updateGoods">
+        UPDATE goods SET goodName=#{1},account=#{2},price=#{3} WHERE id=#{0};
+    </update>
+    <update id="updateGoodPicture">
+        UPDATE goods SET picture=#{0};
+    </update>
+    <select id="selectGoods" resultType="Goods">
+        SELECT * FROM goods;
+    </select>
+</mapper>

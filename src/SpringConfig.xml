@@ -29,5 +29,9 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.UserMapper"/>
     </bean>
+    <bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.example.dao.mapper.AdminMapper"/>
+    </bean>
 
 </beans>

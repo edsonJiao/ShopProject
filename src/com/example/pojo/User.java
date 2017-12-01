@@ -8,6 +8,7 @@ public class User {
     private String admin;
     private String password;
     private String userName;
+    private ShoppingCar shoppingCar=new ShoppingCar(this.getId());
 
     public User(){}
 
