@@ -18,6 +18,6 @@
         <package name="com.example.service"/>
     </typeAliases>
     <mappers>
-
+        <package name="com.example.dao.mapper"/>
     </mappers>
 </configuration>
