@@ -1,15 +1,21 @@
 package test;
 
+import com.example.Utils.SpringUtils;
 import com.example.dao.mapper.UserMapper;
 import com.example.pojo.Goods;
 import com.example.pojo.User;
+import com.example.service.UserBuyService;
+import com.example.service.UserService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.swing.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 //单元测试类
 public class UserTest {
@@ -56,12 +62,42 @@ private ApplicationContext context;
         }
     }
 
+
     @Test
     public void testSelectGoodsByName(){
         UserMapper userMapper= (UserMapper) context.getBean("userMapper");
         List<Goods> goodsList=userMapper.selectGoodsByName("mac");
         for (Goods goods:goodsList){
             System.out.println(goods.getGoodName());
+        }
+    }
+    /**
+     * 测试用户购买以及更新库存功能
+     * @Test
+     *
+     */
+    @Test
+    public void testBuy(){
+        UserBuyService userBuyService= (UserBuyService) context.getBean("UserBuyServiceImpl");
+        double cost=userBuyService.buy(3,1);
+        System.out.println(cost);
+    }
+
+    /**
+     * 测试添加到购物车功能
+     * @Test
+     */
+    @Test
+    public void testAddToCar(){
+        UserBuyService userBuyService= (UserBuyService) context.getBean("UserBuyServiceImpl");
+        UserService userService=(UserService)context.getBean("UserServiceImpl");
+        User user=userService.login("edson123","654321");
+        userBuyService.addToCar(user,"macbookair",2);
+        Map map=user.getShoppingCar().getGoodMap();
+        Set<String> keySet=map.keySet();
+
+        for (String s:keySet){
+            System.out.println(s+"="+map.get(s));
         }
     }
     @After

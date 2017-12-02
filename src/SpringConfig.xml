@@ -26,17 +26,25 @@
         <!--加载数据源-->
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <!--普通用户-->
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.UserMapper"/>
     </bean>
+    <!--管理员用户所拥有的权限-->
     <bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.AdminMapper"/>
     </bean>
+    <!--管理员用户的登录-->
     <bean id="rootMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.RootMapper"/>
+    </bean>
+    <!--库存更新相关-->
+    <bean id="goodsResetUpdate" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="com.example.dao.mapper.GoodsResetUpdate"/>
     </bean>
 
 </beans>

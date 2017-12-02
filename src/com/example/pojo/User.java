@@ -43,4 +43,12 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public ShoppingCar getShoppingCar() {
+        return shoppingCar;
+    }
+
+    public void setShoppingCar(ShoppingCar shoppingCar) {
+        this.shoppingCar = shoppingCar;
+    }
 }
