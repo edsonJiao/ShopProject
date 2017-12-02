@@ -9,6 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.Set;
 
 //用户操作类
 @Service("UserBuyServiceImpl")
@@ -49,11 +50,21 @@ public class UserBuyServiceImpl implements UserBuyService{
      * @param user
      */
     @Override
-    public void payFromCar(User user) {
-        Map carMap=user.getShoppingCar().getGoodMap();
+    public double payFromCar(User user) {
+        double totalCost=0;
+        ApplicationContext context= SpringUtils.getContext();
+        GoodsResetUpdate resetUpdate= (GoodsResetUpdate) context.getBean("goodsResetUpdate");
+        Map<String,Integer> carMap=user.getShoppingCar().getGoodMap();
 
+        Set<String> keySet=carMap.keySet();
+        for (String key:keySet){
+            Goods goods=resetUpdate.selectSingleByName(key);
+            int value=carMap.get(key);
+            totalCost=totalCost+this.buy(goods.getId(),value);
+        }
 
         //清空购物车
         carMap.clear();
+        return totalCost;
     }
 }

@@ -10,5 +10,5 @@ public interface UserBuyService {
     void addToCar(User user,String goodName, int count);
 
     //付款并且清空购物车
-    void payFromCar(User user);
+    double payFromCar(User user);
 }

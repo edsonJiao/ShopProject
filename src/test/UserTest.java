@@ -92,13 +92,15 @@ private ApplicationContext context;
         UserBuyService userBuyService= (UserBuyService) context.getBean("UserBuyServiceImpl");
         UserService userService=(UserService)context.getBean("UserServiceImpl");
         User user=userService.login("edson123","654321");
-        userBuyService.addToCar(user,"macbookair",2);
+        userBuyService.addToCar(user,"thinkpad",1);
+        userBuyService.addToCar(user,"macbookpro",1);
         Map map=user.getShoppingCar().getGoodMap();
         Set<String> keySet=map.keySet();
 
         for (String s:keySet){
             System.out.println(s+"="+map.get(s));
         }
+        System.out.println(userBuyService.payFromCar(user));
     }
     @After
     public void after(){
