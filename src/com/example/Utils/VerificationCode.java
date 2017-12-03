@@ -18,6 +18,7 @@ public class VerificationCode {
     /**
      * 随机生成验证码验证图片
      * 返回验证码的字符
+     * 可待优化：随机验证码生成类优化出验证码角度倾斜功能
      * @return randomCode
      */
     public static String createVerification() {
