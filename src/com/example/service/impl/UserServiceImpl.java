@@ -19,33 +19,44 @@ public class UserServiceImpl implements UserService{
      * 密码注册规范：6-10位大小写字母、数字和简单字符
      * 昵称注册规范：3-8位大小写字母及数字
      * @param user
-     * @return
+     * @return -1 admin不符合规范
+     * @return -2 password不符合规范
+     * @return -3 userName不符合规范
+     * @return -4 admin被注册
+     * @return 1  注册成功
+     *
      */
     @Override
-    public boolean register(User user) {
+    public int register(User user) {
         Pattern pattern=Pattern.compile("[A-z0-9]{6,10}");
         Matcher matcher=pattern.matcher(user.getAdmin());
+        ApplicationContext context=SpringUtils.getContext();
+        UserMapper userMapper= (UserMapper) context.getBean("userMapper");
         if (!matcher.matches()){
             System.out.println("admin不符合规范");
-            return false;
+            return -1;
         }
         pattern=Pattern.compile("[A-z0-9!@#$%^&*]{6,10}");
         matcher=pattern.matcher(user.getPassword());
         if (!matcher.matches()){
             System.out.println("password不符合规范");
-            return false;
+            return -2;
         }
         pattern=Pattern.compile("[A-z0-9]{3,8}");
         matcher=pattern.matcher(user.getUserName());
         if(!matcher.matches()){
-            System.out.println("adminName不符合规范");
-            return false;
+            System.out.println("userName不符合规范");
+            return -3;
         }
-        ApplicationContext context=SpringUtils.getContext();
-        UserMapper userMapper= (UserMapper) context.getBean("userMapper");
+        User user1=userMapper.selectByName(user.getAdmin());
+        //判断用户名是否被注册
+        if (user1!=null){
+            return -4;
+        }
+
         userMapper.insertUser(user.getAdmin(),user.getPassword(),user.getUserName());
         System.out.println("注册成功！");
-        return true;
+        return 1;
     }
 
     /**

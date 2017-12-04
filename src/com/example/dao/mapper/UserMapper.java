@@ -14,6 +14,9 @@ public interface UserMapper {
     //用户注册
     void insertUser(String admin,String password,String username);
 
+    //查询用户名
+    User selectByName(String name);
+
     //查询商品列表
     List<Goods> selectGoods();
 
