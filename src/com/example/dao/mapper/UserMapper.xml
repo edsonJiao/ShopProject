@@ -5,15 +5,15 @@
 <mapper namespace="com.example.dao.mapper.UserMapper">
     <!--通过用户名和密码查询数据库-->
     <select id="selectUser" resultType="user">
-        SELECT * FROM users where admin=#{0} AND password=#{1}
+        SELECT * FROM users where admin=#{admin} AND password=#{password}
     </select>
     <!--插入用户-->
     <insert id="insertUser">
-        INSERT INTO users(admin,password,username) VALUES(#{0},#{1},#{2})
+        INSERT INTO users(admin,password,username) VALUES(#{admin},#{password},#{username})
     </insert>
     <!--通过用户名查询用户-->
     <select id="selectByName" resultType="User">
-        SELECT * FROM users WHERE admin=#{0};
+        SELECT * FROM users WHERE admin=#{name};
     </select>
     <select id="selectGoods" resultType="Goods">
         SELECT * FROM goods;

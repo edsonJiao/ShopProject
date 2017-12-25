@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
     <!--标签扫描-->
+    <context:annotation-config/>
     <context:component-scan base-package="com.example"/>
     <!--加载db.properties-->
     <context:property-placeholder location="db.properties"/>
@@ -27,24 +30,35 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <!--普通用户-->
+    <!--
     <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.UserMapper"/>
     </bean>
+    -->
     <!--管理员用户所拥有的权限-->
+    <!--
     <bean id="adminMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.AdminMapper"/>
     </bean>
+    -->
     <!--管理员用户的登录-->
+    <!--
     <bean id="rootMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.RootMapper"/>
     </bean>
+    -->
     <!--库存更新相关-->
+    <!--
     <bean id="goodsResetUpdate" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
         <property name="mapperInterface" value="com.example.dao.mapper.GoodsResetUpdate"/>
     </bean>
-
+    -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.example.dao.mapper"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
 </beans>

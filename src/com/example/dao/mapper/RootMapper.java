@@ -1,7 +1,10 @@
 package com.example.dao.mapper;
 
 import com.example.pojo.Root;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+@Qualifier(value = "rootMapper")
 public interface RootMapper {
-    Root login(String admin,String password);
+    Root login(@Param("admin") String admin,@Param("password") String password);
 }

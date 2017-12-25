@@ -10,6 +10,6 @@
         SELECT * FROM goods WHERE goodName=#{name};
     </select>
     <update id="upDateReset">
-        UPDATE goods SET account=#{1} WHERE id=#{0}
+        UPDATE goods SET account=#{count} WHERE id=#{id}
     </update>
 </mapper>

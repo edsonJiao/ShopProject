@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 //管理员操作类
 @Service("RootServiceImpl")
 public class RootServiceImpl implements RootService{
+    @Autowired
+    private AdminMapper adminMapper;
     /**
      * 增加商品
      * @param goodName
@@ -21,8 +23,6 @@ public class RootServiceImpl implements RootService{
      */
     @Override
     public void addGoods(String goodName,int account,double price,byte[] picture) {
-        ApplicationContext context= SpringUtils.getContext();
-        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
         adminMapper.insertGoods(goodName,account,price,picture);
     }
 
@@ -32,8 +32,6 @@ public class RootServiceImpl implements RootService{
      */
     @Override
     public void deleteGoods(int id) {
-        ApplicationContext context= SpringUtils.getContext();
-        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
         adminMapper.deleteGoods(id);
     }
 

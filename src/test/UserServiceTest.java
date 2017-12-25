@@ -20,7 +20,7 @@ public class UserServiceTest {
         user.setPassword("123456!");
         user.setUserName("jack");
         UserService userService= (UserService) context.getBean("UserServiceImpl");
-        boolean b=userService.register(user);
+        int b=userService.register(user);
         System.out.println(b);
     }
     @Test
