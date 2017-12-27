@@ -1,5 +1,6 @@
 package test;
 
+import com.example.UI.impl.MainPageImpl;
 import com.example.Utils.SpringUtils;
 import com.example.dao.mapper.UserMapper;
 import com.example.pojo.Goods;
@@ -101,6 +102,11 @@ private ApplicationContext context;
             System.out.println(s+"="+map.get(s));
         }
         System.out.println(userBuyService.payFromCar(user));
+    }
+    @Test
+    public void testMainPageImpl(){
+        MainPageImpl mainPage=new MainPageImpl();
+        mainPage.show();
     }
     @After
     public void after(){
