@@ -1,5 +1,7 @@
 package com.example.pojo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 /**
  * 管理员类
  *
@@ -10,6 +12,7 @@ package com.example.pojo;
  *
  * 优化：因为Root管理员只有一个，考虑能否设计成单例模式
  */
+@Qualifier("root")
 public class Root {
     private String admin;
     private String password;

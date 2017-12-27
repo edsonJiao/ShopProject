@@ -1,9 +1,12 @@
 package com.example.pojo;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
 /**
  * 商品属性类
  * 属性：id 商品名称 单价 数量 商品图片
  */
+@Qualifier("goods")
 public class Goods {
     private int id;
     private String goodName;

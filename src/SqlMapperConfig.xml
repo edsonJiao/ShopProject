@@ -18,6 +18,7 @@
         <package name="com.example.pojo"/>
         <package name="com.example.service"/>
     </typeAliases>
+    <!--mapper文件-->
     <mappers>
         <package name="com.example.dao.mapper"/>
     </mappers>
