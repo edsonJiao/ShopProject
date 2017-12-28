@@ -5,6 +5,7 @@ import com.example.dao.mapper.GoodsResetUpdate;
 import com.example.pojo.Goods;
 import com.example.pojo.User;
 import com.example.service.UserBuyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.Set;
 //用户操作类
 @Service("UserBuyServiceImpl")
 public class UserBuyServiceImpl implements UserBuyService{
+    @Autowired
+    private GoodsResetUpdate resetUpdate;
     /**
      * 根据传入的id和count购买商品
      * 如果返回值-1则说明库存不足
@@ -25,8 +28,6 @@ public class UserBuyServiceImpl implements UserBuyService{
     @Override
     public double buy(int id, int count) {
         double cost=0;
-        ApplicationContext context= SpringUtils.getContext();
-        GoodsResetUpdate resetUpdate= (GoodsResetUpdate) context.getBean("goodsResetUpdate");
         Goods goods=resetUpdate.selectSingle(id);
         if(goods.getAccount()<count){
             System.out.println("库存不足");
@@ -52,8 +53,6 @@ public class UserBuyServiceImpl implements UserBuyService{
     @Override
     public double payFromCar(User user) {
         double totalCost=0;
-        ApplicationContext context= SpringUtils.getContext();
-        GoodsResetUpdate resetUpdate= (GoodsResetUpdate) context.getBean("goodsResetUpdate");
         Map<String,Integer> carMap=user.getShoppingCar().getGoodMap();
 
         Set<String> keySet=carMap.keySet();

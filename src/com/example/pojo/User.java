@@ -1,8 +1,13 @@
 package com.example.pojo;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-@Component("User")
+/**
+ * 普通用户类
+ * 属性：
+ * id admin password userName shoppingCar
+ */
+@Qualifier(value = "user")
 public class User {
     private int id;
     private String admin;

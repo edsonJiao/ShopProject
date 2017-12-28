@@ -29,7 +29,7 @@ public class AdminTest {
     @Test
     public void testDeleteGoodById(){
         AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
-        adminMapper.deleteGoods(1);
+        adminMapper.deleteGoods(5);
     }
     @Test
     public void testSelectGoods(){

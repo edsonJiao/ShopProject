@@ -1,11 +1,16 @@
 ShopProject是一个小型开源项目，重在练习。
+项目目的：熟练掌握JDBC，了解java代码与数据库的连接问题
 团队队长：矫克清
-团队成员：待定
+团队成员：巩鑫、蒋向前、房好顺
 开发环境：IDEA MySql
 JDK版本：JDK1.8
 版本控制工具：Github Git
 框架使用：Mybatis Spring
 
+使用框架的原因：
+使用Mybatis简化代码量，减少冗余重复代码，解决mysql语句嵌入java代码中
+导致修改数据库语句必须修改代码重新编译的问题。
+使用Spring进行松耦合
 
 各包的含义：
 dao 持久层，用于存放与数据库进行操作的类
@@ -13,17 +18,19 @@ pojo 用于存放实体类
 service 业务逻辑层 用于存放业务逻辑所相关的类
 UI  UI层 用于存放UI界面相关的类
 test 用于存放单元测试的类
+
 db.properties 数据库属性文件
 SpringConfig.xml Spring的配置文件
 SqlMapperConfig.xml Mybatis的配置文件
 
 目录的作用
 images 用于存放测试图片
-lib  存档各种jar包
+lib  存放各种jar包
 
 目前数据库中所存在的表
 users 用户表
 goods 商品表
+root  管理员表
 
 命名规范：
 1.禁止使用拼音进行命名

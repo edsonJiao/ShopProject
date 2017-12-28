@@ -1,16 +1,8 @@
 package com.example.Utils;
-
-
-import sun.awt.Graphics2Delegate;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Map;
+import java.io.*;
 import java.util.Random;
 
 //验证码生成类
@@ -61,7 +53,7 @@ public class VerificationCode {
         }
         // randomCode用于保存随机产生的验证码，以便用户登录后进行验证。
         StringBuffer randomCode = new StringBuffer();
-        int red = 0, green = 0, blue = 0;
+        int red , green , blue ;
         // 随机产生codeCount数字的验证码。
         for (int i = 0; i < codeCount; i++) {
             //多次测试发现codeX在15-20 codeY在15-30这个区间最佳
@@ -84,7 +76,14 @@ public class VerificationCode {
             // 将产生的四个随机数组合在一起。
             randomCode.append(strRand);
             try {
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
                 ImageIO.write(buffImg,"jpeg",new FileOutputStream("images/verification.jpg"));
+                //ImageIO.write(buffImg,"jpeg",outputStream);
+                //验证码问题的解决
+                //根据UI界面的需求，将ImageIo流写入到输出流之中作为返回值返回
+                //outputStream.writeTo(new FileOutputStream("images/test.jpg"));
+
+                //outputStream.write(bytes);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -16,7 +16,6 @@ public class SimpleTest {
     }
     @Test
     public void testVerificationCode(){
-        VerificationCode v=new VerificationCode();
-        System.out.println(v.createVerification());
+        System.out.println(VerificationCode.createVerification());
     }
 }
