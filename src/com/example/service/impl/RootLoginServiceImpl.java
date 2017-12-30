@@ -7,12 +7,13 @@ import com.example.pojo.Root;
 import com.example.service.RootLoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
-@Service("RootLoginServiceImpl")
+@Service("rootLoginService")
 public class RootLoginServiceImpl implements RootLoginService{
     @Autowired
-    private RootMapper rootMapper;
+    private  RootMapper rootMapper;
 
     @Override
     public Root login(String admin, String password) {

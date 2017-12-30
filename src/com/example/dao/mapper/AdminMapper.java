@@ -2,10 +2,11 @@ package com.example.dao.mapper;
 
 import com.example.pojo.Goods;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.beans.factory.annotation.Qualifier;
+
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Qualifier(value = "adminMapper")
+@Repository(value = "adminMapper")
 public interface AdminMapper {
     //增加商品
     void insertGoods(@Param("goodName") String goodName, @Param("account") int account,

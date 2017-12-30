@@ -1,7 +1,10 @@
 package com.example.UI.impl;
 
-import com.example.UI.MainPage;
 import com.example.UI.RootLogin;
+import com.example.Utils.SpringUtils;
+import com.example.pojo.Root;
+import com.example.service.RootLoginService;
+import org.springframework.context.ApplicationContext;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,12 +14,15 @@ import java.awt.event.WindowEvent;
 
 //管理员用户登录
 public class RootLoginImpl implements RootLogin{
+    ApplicationContext context= SpringUtils.getContext();
+    private  RootLoginService rootLoginService;
     /**
      * @Todo4
      * 管理员用户登录UI
      */
     @Override
     public void login() {
+        rootLoginService= (RootLoginService) context.getBean("rootLoginService");
         JFrame jFrame = new JFrame();
         jFrame.setTitle("管理员登陆");
         jFrame.setSize(300,200);
@@ -54,8 +60,16 @@ public class RootLoginImpl implements RootLogin{
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                jFrame.dispose();
-                new RootOperateImpl().operator();
+
+                String admin=adminText.getText();
+                String password=passwordText.getText();
+                System.out.println(admin+"    "+password);
+                Root root=rootLoginService.login(admin,password);
+                if (root!=null){
+                    jFrame.dispose();
+                    new RootOperateImpl().operator();
+                }
+
             }
         });
 
@@ -67,6 +81,7 @@ public class RootLoginImpl implements RootLogin{
             public void actionPerformed(ActionEvent actionEvent) {
                 jFrame.dispose();
                 new MainPageImpl().show();
+
             }
         });
     }
