@@ -35,6 +35,7 @@ public class MainPageImpl implements MainPage{
 //            }
 //        });
 
+        //管理员登录
         JButton adminLoginButton = new JButton("管理员登录");
         adminLoginButton.setSize(100,30);
         adminLoginButton.setLocation(90,80);
@@ -48,6 +49,7 @@ public class MainPageImpl implements MainPage{
             }
         });
 
+        //普通用户登录
         JButton userLoginButton = new JButton("用户登录");
         userLoginButton.setSize(100,30);
         userLoginButton.setLocation(90,150);
@@ -60,6 +62,7 @@ public class MainPageImpl implements MainPage{
             }
         });
 
+        //用户注册
         JButton registerButton = new JButton("用户注册");
         registerButton.setSize(100,30);
         registerButton.setLocation(90,220);
