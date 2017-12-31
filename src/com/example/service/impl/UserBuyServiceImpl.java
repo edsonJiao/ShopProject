@@ -2,6 +2,7 @@ package com.example.service.impl;
 
 import com.example.Utils.SpringUtils;
 import com.example.dao.mapper.GoodsResetUpdate;
+import com.example.dao.mapper.UserMapper;
 import com.example.pojo.Goods;
 import com.example.pojo.User;
 import com.example.service.UserBuyService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -17,6 +19,8 @@ import java.util.Set;
 public class UserBuyServiceImpl implements UserBuyService{
     @Autowired
     private GoodsResetUpdate resetUpdate;
+    @Autowired
+    private UserMapper userMapper;
     /**
      * 根据传入的id和count购买商品
      * 如果返回值-1则说明库存不足
@@ -65,5 +69,11 @@ public class UserBuyServiceImpl implements UserBuyService{
         //清空购物车
         carMap.clear();
         return totalCost;
+    }
+
+    @Override
+    public List<Goods> showAllGoods() {
+        List<Goods> list= userMapper.selectGoods();
+        return list;
     }
 }

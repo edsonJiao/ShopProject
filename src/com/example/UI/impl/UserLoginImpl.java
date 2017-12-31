@@ -2,11 +2,8 @@ package com.example.UI.impl;
 
 import com.example.UI.UserLogin;
 import com.example.Utils.SpringUtils;
-import com.example.Utils.VerificationCode;
-import com.example.pojo.Root;
 import com.example.pojo.User;
 import com.example.service.UserService;
-import com.example.service.impl.UserServiceImpl;
 import org.springframework.context.ApplicationContext;
 
 import javax.swing.*;
@@ -92,15 +89,16 @@ public class UserLoginImpl implements UserLogin {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                String admin=adminText.getText();
-                String password=passwordText.getText();
-                System.out.println(admin+"    "+password);
-                User user=userService.login(admin,password);
-                if (user!=null){
+                String admin = adminText.getText();
+                String password = passwordText.getText();
+                System.out.println(admin + "    " + password);
+                User user = userService.login(admin, password);
+                if (user != null) {
                     jFrame.dispose();
                     new ShopGoodsImpl().operator();
+                } else {
+                    JOptionPane.showMessageDialog(null, "密码错误", "警告", JOptionPane.ERROR_MESSAGE);
                 }
-
             }
         });
 

@@ -69,7 +69,7 @@ public class RootLoginImpl implements RootLogin{
                     jFrame.dispose();
                     new RootOperateImpl().operator();
                 }
-
+                JOptionPane.showMessageDialog(null, "密码错误", "警告", JOptionPane.ERROR_MESSAGE);
             }
         });
 
