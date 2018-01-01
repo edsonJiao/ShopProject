@@ -50,7 +50,7 @@ public class RootLoginImpl implements RootLogin{
         adminText.setBounds(150,30,100,30);
         jFrame.add(adminText);
 
-        JTextField passwordText = new JTextField();
+        JPasswordField passwordText = new JPasswordField();
         passwordText.setBounds(150,70,100,30);
         jFrame.add(passwordText);
 

@@ -52,7 +52,7 @@ public class UserLoginImpl implements UserLogin {
         adminText.setBounds(150,30,100,30);
         jFrame.add(adminText);
 
-        JTextField passwordText = new JTextField();
+        JPasswordField passwordText = new JPasswordField();
         passwordText.setBounds(150,70,100,30);
         jFrame.add(passwordText);
 //
@@ -159,11 +159,11 @@ public class UserLoginImpl implements UserLogin {
         adminText.setBounds(150,30,100,30);
         jFrame.add(adminText);
 
-        JTextField passwordText = new JTextField();
+        JPasswordField passwordText = new JPasswordField();
         passwordText.setBounds(150,70,100,30);
         jFrame.add(passwordText);
 
-        JTextField rePasswordText=new JTextField();
+        JPasswordField rePasswordText=new JPasswordField();
         rePasswordText.setBounds(150,110,100,30);
         jFrame.add(rePasswordText);
 
