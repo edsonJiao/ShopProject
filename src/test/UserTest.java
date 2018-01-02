@@ -1,7 +1,6 @@
 package test;
 
-import com.example.UI.impl.MainPageImpl;
-import com.example.Utils.SpringUtils;
+import com.example.ui.impl.MainPageImpl;
 import com.example.dao.mapper.UserMapper;
 import com.example.pojo.Goods;
 import com.example.pojo.User;
@@ -13,7 +12,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.swing.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -55,7 +53,7 @@ private ApplicationContext context;
     @Test
     public void testSelect(){
         UserMapper userMapper= (UserMapper) context.getBean("userMapper");
-        User user=userMapper.selectUser("edson123","123456");
+        User user=userMapper.getUser("edson123","123456");
         if (user!=null){
             System.out.println(user.getUserName()+"  "+user.getAdmin()+" "+user.getPassword());
         }else {
@@ -67,7 +65,7 @@ private ApplicationContext context;
     @Test
     public void testSelectGoodsByName(){
         UserMapper userMapper= (UserMapper) context.getBean("userMapper");
-        List<Goods> goodsList=userMapper.selectGoodsByName("mac");
+        List<Goods> goodsList=userMapper.listAllGoodsByName("mac");
         for (Goods goods:goodsList){
             System.out.println(goods.getGoodName());
         }

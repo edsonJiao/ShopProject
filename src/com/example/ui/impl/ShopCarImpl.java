@@ -1,6 +1,6 @@
-package com.example.UI.impl;
+package com.example.ui.impl;
 
-import com.example.UI.ShopCar;
+import com.example.ui.ShopCar;
 
 public class ShopCarImpl implements ShopCar{
     /**

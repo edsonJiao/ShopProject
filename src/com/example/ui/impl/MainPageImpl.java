@@ -1,8 +1,8 @@
-package com.example.UI.impl;
+package com.example.ui.impl;
 
-import com.example.UI.MainPage;
-import com.example.UI.RootLogin;
-import com.example.UI.UserLogin;
+import com.example.ui.MainPage;
+import com.example.ui.RootLogin;
+import com.example.ui.UserLogin;
 
 import javax.swing.*;
 

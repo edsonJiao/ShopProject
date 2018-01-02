@@ -1,7 +1,7 @@
-package com.example.UI.impl;
+package com.example.ui.impl;
 
-import com.example.UI.UserLogin;
-import com.example.Utils.SpringUtils;
+import com.example.ui.UserLogin;
+import com.example.util.SpringUtils;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import org.springframework.context.ApplicationContext;

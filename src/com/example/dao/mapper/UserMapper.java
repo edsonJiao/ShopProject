@@ -12,17 +12,17 @@ import java.util.List;
 public interface UserMapper {
 
     //用户登录
-    User selectUser(@Param("admin") String admin, @Param("password") String password);
+    User getUser(@Param("admin") String admin, @Param("password") String password);
 
     //用户注册
     void insertUser(@Param("admin") String admin,@Param("password") String password,@Param("username") String username);
 
     //查询用户名
-    User selectByName(@Param("name") String name);
+    User getByName(@Param("name") String name);
 
     //查询商品列表
-    List<Goods> selectGoods();
+    List<Goods> listAllGoods();
 
     //通过商品名称关键字实现模糊查询
-    List<Goods> selectGoodsByName(String name);
+    List<Goods> listAllGoodsByName(String name);
 }

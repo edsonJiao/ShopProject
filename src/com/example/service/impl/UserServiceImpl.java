@@ -1,11 +1,10 @@
 package com.example.service.impl;
 
-import com.example.Utils.SpringUtils;
+import com.example.util.PasswordEncrypte;
 import com.example.dao.mapper.UserMapper;
 import com.example.pojo.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.regex.Matcher;
@@ -50,13 +49,13 @@ public class UserServiceImpl implements UserService{
             System.out.println("userName不符合规范");
             return -3;
         }
-        User user1=userMapper.selectByName(user.getAdmin());
+        User user1=userMapper.getByName(user.getAdmin());
         //判断用户名是否被注册
         if (user1!=null){
             return -4;
         }
 
-        userMapper.insertUser(user.getAdmin(),user.getPassword(),user.getUserName());
+        userMapper.insertUser(PasswordEncrypte.encodePassword(user.getAdmin()),PasswordEncrypte.encodePassword(user.getPassword()),user.getUserName());
         System.out.println("注册成功！");
         return 1;
     }
@@ -69,7 +68,7 @@ public class UserServiceImpl implements UserService{
      */
     @Override
     public User login(String admin, String password) {
-        User user=userMapper.selectUser(admin,password);
+        User user=userMapper.getUser(PasswordEncrypte.encodePassword(admin),PasswordEncrypte.encodePassword(password));
         if (user!=null){
             return user;
         }

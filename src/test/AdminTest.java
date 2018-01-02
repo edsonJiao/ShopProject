@@ -1,6 +1,6 @@
 package test;
 
-import com.example.Utils.PictureUtils;
+import com.example.util.PictureUtils;
 import com.example.dao.mapper.AdminMapper;
 import com.example.pojo.Goods;
 import org.junit.Before;
@@ -29,12 +29,12 @@ public class AdminTest {
     @Test
     public void testDeleteGoodById(){
         AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
-        adminMapper.deleteGoods(5);
+        adminMapper.removerGoods(5);
     }
     @Test
     public void testSelectGoods(){
         AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
-        List<Goods> goodsList=adminMapper.selectGoods();
+        List<Goods> goodsList=adminMapper.listAllGoods();
         for (Goods goods:goodsList){
             System.out.println(goods.getGoodName());
         }

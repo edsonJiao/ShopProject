@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 @Repository(value = "goodsResetUpdate")
 public interface GoodsResetUpdate {
     //查询单个商品
-    Goods selectSingle(@Param("id") int id);
+    Goods getSingle(@Param("id") int id);
 
     //通过名称查询到商品
-    Goods selectSingleByName(@Param("name") String name);
+    Goods getSingleByName(@Param("name") String name);
 
     //更新商品的库存
-    void upDateReset(@Param("id") int id,@Param("count") int count);
+    void updateReset(@Param("id") int id,@Param("count") int count);
 }

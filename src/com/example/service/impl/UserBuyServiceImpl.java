@@ -1,13 +1,11 @@
 package com.example.service.impl;
 
-import com.example.Utils.SpringUtils;
 import com.example.dao.mapper.GoodsResetUpdate;
 import com.example.dao.mapper.UserMapper;
 import com.example.pojo.Goods;
 import com.example.pojo.User;
 import com.example.service.UserBuyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,14 +30,14 @@ public class UserBuyServiceImpl implements UserBuyService{
     @Override
     public double buy(int id, int count) {
         double cost=0;
-        Goods goods=resetUpdate.selectSingle(id);
+        Goods goods=resetUpdate.getSingle(id);
         if(goods.getAccount()<count){
             System.out.println("库存不足");
             return -1;
         }
         cost=goods.getPrice()*count;
         int reset=goods.getAccount()-count;
-        resetUpdate.upDateReset(id,reset);
+        resetUpdate.updateReset(id,reset);
         return cost;
     }
 
@@ -61,7 +59,7 @@ public class UserBuyServiceImpl implements UserBuyService{
 
         Set<String> keySet=carMap.keySet();
         for (String key:keySet){
-            Goods goods=resetUpdate.selectSingleByName(key);
+            Goods goods=resetUpdate.getSingleByName(key);
             int value=carMap.get(key);
             totalCost=totalCost+this.buy(goods.getId(),value);
         }
@@ -72,8 +70,8 @@ public class UserBuyServiceImpl implements UserBuyService{
     }
 
     @Override
-    public List<Goods> showAllGoods() {
-        List<Goods> list= userMapper.selectGoods();
+    public List<Goods> listAllGoods() {
+        List<Goods> list= userMapper.listAllGoods();
         return list;
     }
 }

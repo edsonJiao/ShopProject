@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository(value = "rootMapper")
 public interface RootMapper {
-    Root login(@Param("admin") String admin,@Param("password") String password);
+    Root getRoot(@Param("admin") String admin,@Param("password") String password);
 }

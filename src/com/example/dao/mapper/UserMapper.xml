@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.dao.mapper.UserMapper">
     <!--通过用户名和密码查询数据库-->
-    <select id="selectUser" resultType="user">
+    <select id="getUser" resultType="user">
         SELECT * FROM users where admin=#{admin} AND password=#{password}
     </select>
     <!--插入用户-->
@@ -12,13 +12,13 @@
         INSERT INTO users(admin,password,username) VALUES(#{admin},#{password},#{username})
     </insert>
     <!--通过用户名查询用户-->
-    <select id="selectByName" resultType="User">
+    <select id="getByName" resultType="User">
         SELECT * FROM users WHERE admin=#{name};
     </select>
-    <select id="selectGoods" resultType="Goods">
+    <select id="listAllGoods" resultType="Goods">
         SELECT * FROM goods;
     </select>
-    <select id="selectGoodsByName" parameterType="String" resultType="Goods">
+    <select id="listAllGoodsByName" parameterType="String" resultType="Goods">
         SELECT * FROM goods WHERE goodName LIKE '%${value}%';
     </select>
 </mapper>

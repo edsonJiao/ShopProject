@@ -1,7 +1,7 @@
-package com.example.UI.impl;
+package com.example.ui.impl;
 
-import com.example.UI.RootLogin;
-import com.example.Utils.SpringUtils;
+import com.example.ui.RootLogin;
+import com.example.util.SpringUtils;
 import com.example.pojo.Root;
 import com.example.service.RootLoginService;
 import org.springframework.context.ApplicationContext;
@@ -61,15 +61,16 @@ public class RootLoginImpl implements RootLogin{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                String admin=adminText.getText();
-                String password=passwordText.getText();
-                System.out.println(admin+"    "+password);
-                Root root=rootLoginService.login(admin,password);
-                if (root!=null){
+                String admin = adminText.getText();
+                String password = passwordText.getText();
+                System.out.println(admin + "    " + password);
+                Root root = rootLoginService.login(admin, password);
+                if (root != null) {
                     jFrame.dispose();
                     new RootOperateImpl().operator();
+                } else {
+                    JOptionPane.showMessageDialog(null, "密码错误", "警告", JOptionPane.ERROR_MESSAGE);
                 }
-                JOptionPane.showMessageDialog(null, "密码错误", "警告", JOptionPane.ERROR_MESSAGE);
             }
         });
 

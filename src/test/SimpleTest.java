@@ -1,7 +1,7 @@
 package test;
 
-import com.example.Utils.PasswordEncrypte;
-import com.example.Utils.VerificationCode;
+import com.example.util.PasswordEncrypte;
+import com.example.util.VerificationCode;
 import org.junit.Test;
 
 public class SimpleTest {

@@ -1,10 +1,9 @@
-package com.example.UI.impl;
+package com.example.ui.impl;
 
-import com.example.UI.ShopGoods;
-import com.example.Utils.SpringUtils;
+import com.example.ui.ShopGoods;
+import com.example.util.SpringUtils;
 import com.example.pojo.Goods;
 import com.example.service.UserBuyService;
-import javafx.scene.control.ComboBox;
 import org.springframework.context.ApplicationContext;
 
 import javax.swing.*;
@@ -27,7 +26,7 @@ public class ShopGoodsImpl implements ShopGoods{
      */
     @Override
     public void operator() {
-        List<Goods> goodsList=userBuyService.showAllGoods();
+        List<Goods> goodsList=userBuyService.listAllGoods();
         JFrame jFrame = new JFrame();
         jFrame.setTitle("商品列表");
         jFrame.setSize(600,600);

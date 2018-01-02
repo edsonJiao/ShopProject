@@ -1,6 +1,6 @@
 package test;
 
-import com.example.Utils.SpringUtils;
+import com.example.util.SpringUtils;
 import com.example.dao.mapper.RootMapper;
 import com.example.pojo.Root;
 import com.example.service.RootLoginService;

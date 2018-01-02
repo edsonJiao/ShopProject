@@ -1,12 +1,10 @@
 package com.example.service.impl;
 
-import com.example.Utils.SpringUtils;
+import com.example.util.SpringUtils;
 import com.example.dao.mapper.AdminMapper;
-import com.example.pojo.Goods;
 import com.example.service.RootService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 //管理员操作类
@@ -32,7 +30,7 @@ public class RootServiceImpl implements RootService{
      */
     @Override
     public void deleteGoods(int id) {
-        adminMapper.deleteGoods(id);
+        adminMapper.removerGoods(id);
     }
 
     /**

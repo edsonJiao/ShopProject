@@ -16,5 +16,5 @@ public interface UserBuyService {
     double payFromCar(User user);
 
     //显示商品
-    List<Goods> showAllGoods();
+    List<Goods> listAllGoods();
 }

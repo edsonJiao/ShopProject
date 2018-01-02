@@ -1,8 +1,7 @@
 package test;
 
-import com.example.Utils.PictureUtils;
-import com.example.Utils.SpringUtils;
-import com.example.dao.mapper.AdminMapper;
+import com.example.util.PictureUtils;
+import com.example.util.SpringUtils;
 import com.example.service.RootService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

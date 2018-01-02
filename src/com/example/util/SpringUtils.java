@@ -1,4 +1,4 @@
-package com.example.Utils;
+package com.example.util;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

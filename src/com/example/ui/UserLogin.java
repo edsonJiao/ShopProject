@@ -1,4 +1,4 @@
-package com.example.UI;
+package com.example.ui;
 
 public interface UserLogin {
     //登录

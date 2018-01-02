@@ -6,7 +6,7 @@
     <insert id="insertGoods">
         INSERT INTO goods(goodName,account,price,picture) VALUES (#{goodName},#{account},#{price},#{picture});
     </insert>
-    <delete id="deleteGoods" parameterType="int">
+    <delete id="removeGoods" parameterType="int">
         DELETE FROM goods WHERE id=#{id};
     </delete>
     <update id="updateGoods">
@@ -15,7 +15,7 @@
     <update id="updateGoodPicture">
         UPDATE goods SET picture=#{price};
     </update>
-    <select id="selectGoods" resultType="Goods">
+    <select id="listAllGoods" resultType="Goods">
         SELECT * FROM goods;
     </select>
 </mapper>

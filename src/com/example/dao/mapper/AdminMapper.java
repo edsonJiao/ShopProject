@@ -13,7 +13,7 @@ public interface AdminMapper {
                      @Param("price") double price, @Param("picture") byte[] picture);
 
     //删除商品
-    void deleteGoods(@Param("id") int id);
+    void removerGoods(@Param("id") int id);
 
     //更改商品
     void updateGoods(@Param("id") int id,@Param("goodName") String goodName,
@@ -23,5 +23,5 @@ public interface AdminMapper {
     void updateGoodPicture(@Param("id") int id,@Param("price") byte[] picture);
 
     //查询所有商品
-    List<Goods> selectGoods();
+    List<Goods> listAllGoods();
 }
