@@ -42,8 +42,8 @@ public class RootServiceImpl implements RootService{
      */
     @Override
     public void updateGoods(int id, String goodName, int account, double price) {
-        ApplicationContext context= SpringUtils.getContext();
-        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
+//        ApplicationContext context= SpringUtils.getContext();
+//        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
         adminMapper.updateGoods(id,goodName,account,price);
     }
 
@@ -54,8 +54,8 @@ public class RootServiceImpl implements RootService{
      */
     @Override
     public void updateGoodPicture(int id, byte[] picture) {
-        ApplicationContext context= SpringUtils.getContext();
-        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
+//        ApplicationContext context= SpringUtils.getContext();
+//        AdminMapper adminMapper= (AdminMapper) context.getBean("adminMapper");
         adminMapper.updateGoodPicture(id,picture);
     }
 }
